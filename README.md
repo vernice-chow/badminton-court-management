@@ -1,5 +1,5 @@
 # badminton-court-management
-#### impletmentation of CRUD at ADMIN side by using Firebase.
+#### implementation of CRUD at ADMIN side by using Firebase.
 
 - Data storing style <br/>
 ![image](https://user-images.githubusercontent.com/101675717/160218812-4035209e-72f2-40d0-8322-d729decbf2ed.png)
