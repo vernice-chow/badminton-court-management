@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="BadmintonCourtBookingSystem.SideAdmin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdminManage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Enabled">
+            <StackPanel Background="WhiteSmoke">
+                <RelativePanel>
+                    <Border Background="#FF5779FF" Width="1501" Height="227"></Border>
+                    <Border Height="1150" Width="200" HorizontalAlignment="Left" Background="#FF0D293E" x:Name="sideborder">
+
+                        <StackPanel>
+                            <Image Source="Assets/logo.jpg" Width="200" Margin="-20,0,-20,0"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+                    <StackPanel Margin="300,40,0,0">
+                        <StackPanel Orientation="Horizontal">
+
+                            <Border Background="#FFFFC54E" Width="146" Height="136"  HorizontalAlignment="Left" Margin="30" CornerRadius="15">
+                                <StackPanel>
+                                    <TextBlock  x:Name="todaybooking" VerticalAlignment="Stretch"  Margin="0,7,0,0" 
+                                TextWrapping="Wrap" TextAlignment="Center" FontWeight="SemiBold" FontSize="18" 
+                                Foreground="WhiteSmoke" Text="Today booking number"></TextBlock>
+                                    <TextBlock x:Name="counttoday" Foreground="WhiteSmoke" Margin="10"  TextAlignment="Center" FontSize="30"/>
+                                </StackPanel>
+                            </Border>
+
+                            <Border x:Name="changebg" Background="#FFFF5E4E" Width="146" Height="136"  HorizontalAlignment="Center" Margin="30" CornerRadius="15">
+                                <StackPanel>
+                                    <TextBlock  VerticalAlignment="Stretch"  Margin="0,7,0,0" 
+                                TextWrapping="Wrap" TextAlignment="Center" FontWeight="SemiBold" FontSize="18" 
+                                Foreground="WhiteSmoke" Text="Compare to Yesterday"></TextBlock>
+                                    <TextBlock  x:Name="compareyesterday" Foreground="WhiteSmoke" Margin="10"  TextAlignment="Center" FontSize="30"/>
+                                </StackPanel>
+                            </Border>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Button Margin="7" x:Name="NavigateManage" Click="NavigateManage_Click" Content="Manage Booking" Background="#FF5779FF" Foreground="WhiteSmoke"></Button>
+                            <Button Margin="7" x:Name="BookingHistory" Click="BookingHistory_Click"  Content="All History" Background="#FF5779FF" Foreground="WhiteSmoke" HorizontalAlignment="Right"></Button>
+                            <Button Margin="7" x:Name="AvailableSlot" Click="AvailableSlot_Click"  Content="Available Slot" Background="#FF5779FF" Foreground="WhiteSmoke" HorizontalAlignment="Right"></Button>
+
+                            <Button Margin="7" x:Name="coachButton" Click="coachButton_Click"  Content="Add/Update Coach" Background="#FF5779FF" Foreground="WhiteSmoke" HorizontalAlignment="Right"/>
+
+                            <Button Margin="7" x:Name="viewlistcoachButton" Click="viewHireButton_Click"  Content="View List of Customer with Coach" Background="#FF5779FF" Foreground="WhiteSmoke" HorizontalAlignment="Right"/>
+
+                            <Button Margin="7" x:Name="sellerButton" Click="sellerButton_Click"  Content="Seller Panel" Background="#FF5779FF" Foreground="WhiteSmoke" HorizontalAlignment="Right"/>
+                        </StackPanel>
+
+
+                        <Grid ScrollViewer.VerticalScrollMode="Enabled">
+                            <controls:DataGrid x:Name="displayinfo"  AutoGenerateColumns="False" HorizontalAlignment="Stretch"  >
+
+                                <controls:DataGrid.Columns>
+                                    <controls:DataGridTextColumn Header="Date" Width="250" Binding="{Binding Dayy}" IsReadOnly="True" CanUserSort="True" />
+                                    <controls:DataGridTextColumn Header="Time" Width="150" Binding="{Binding Time}" IsReadOnly="True"/>
+                                    <controls:DataGridTextColumn Header="Court" Width="150" Binding="{Binding Courtss}" IsReadOnly="True"/>
+                                    <controls:DataGridTextColumn Header="Email" Width="350" Binding="{Binding Email}" IsReadOnly="True"/>
+
+
+                                </controls:DataGrid.Columns>
+
+                            </controls:DataGrid>
+                        </Grid>
+
+                        <!-- CalendarView CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging"/ -->
+
+                    </StackPanel>
+                </RelativePanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

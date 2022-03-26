@@ -1,0 +1,89 @@
+﻿<Page
+    x:Class="BadmintonCourtBookingSystem.CoachAdmin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BadmintonCourtBookingSystem"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="WhiteSmoke">
+
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel>
+                    <Button x:Name="BackButton" Click="BackButton_Click"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        IsEnabled="{x:Bind Frame.CanGoBack, Mode=OneWay}" 
+                        ToolTipService.ToolTip="Back"/>
+                    
+                    <TextBlock x:Name="EditCoach" Text="Insert Update Coach" Margin="10,10,10,10" FontSize="50" FontStyle="Normal" FontWeight="Bold" Foreground="Navy" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="coachNameTextBox" TextWrapping="Wrap" Text="" PlaceholderText="Coach Name (eg. James Hoe)" Margin="10 10 10 10" Width="400"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBox x:Name="coachPhoneTextBox" TextWrapping="Wrap" PlaceholderText="Coach Contact Number (eg. 0117273xxx)" Margin="10 10 10 10" Width="400"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBox x:Name="coachPriceTextBox" TextWrapping="Wrap" Text="RM"  Margin="10 10 10 10" Width="400"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBox x:Name="coachDescriptionTextBox" TextWrapping="Wrap" Text="" PlaceholderText="Coach Description (eg. Coach of SMJK Nan Hwa)" Margin="10 10 10 10" Width="400"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <TextBox x:Name="coachCourtTextBox" TextWrapping="Wrap" Text="Court " Margin="10 10 10 10" Width="400"/>
+                </StackPanel>
+
+                <RelativePanel HorizontalAlignment="Center">
+                    <Button x:Name="addCoachButton" Content="Add New Coach"  Click="addCoachButton_Click" Margin="10,10" CornerRadius="10" Background="Navy" Foreground="WhiteSmoke"/>
+                    <Button x:Name="updateCoachButton" Content="Update Coach" Click="updateCoachButton_Click" Margin="10 10 10 10" RelativePanel.RightOf="addCoachButton" CornerRadius="10" Background="Navy" Foreground="WhiteSmoke"/>
+                </RelativePanel>
+
+                <ListView x:Name="myCoach" HorizontalAlignment="Center">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="50" Margin="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0" VerticalAlignment="Top" Margin="5 0 0 0">
+                                    <TextBlock Text="{Binding CoachName}" Width="150" TextWrapping="NoWrap"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="5 0 0 0">
+                                    <TextBlock Text="{Binding CoachPhone}" Width="150"  TextWrapping="NoWrap"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" VerticalAlignment="Top" Margin="5 0 0 0">
+                                    <TextBlock Text="{Binding CoachPrice}" Width="50" TextWrapping="NoWrap"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="3" VerticalAlignment="Top" Margin="5 0 0 0">
+                                    <TextBlock Text="{Binding CoachDescription}" Width="200" TextWrapping="NoWrap"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="4" VerticalAlignment="Top" Margin="5 0 0 0">
+                                    <TextBlock Text="{Binding CoachCourt}" Width="100"  TextWrapping="NoWrap"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="5" VerticalAlignment="Top" Margin="5 5 5 5">
+                                    <Image x:Name="deleteButton" ToolTipService.ToolTip="Delete Coach" Source="Assets/dustbin.png" Height="25" Width="25" PointerPressed="deleteCoachButton_Click" Tag="{Binding CoachID}"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="6" VerticalAlignment="Top" Margin="20 5 5 5">
+                                    <Image x:Name="editRecordButton" ToolTipService.ToolTip="Edit Coach Record" Source="Assets/edit.png" Height="25" Width="25" PointerPressed="editCoachButton_Click" Tag="{Binding CoachID}"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

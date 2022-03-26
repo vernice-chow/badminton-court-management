@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="BadmintonCourtBookingSystem.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BadmintonCourtBookingSystem"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <Image Source="/Assets/logo1.jpeg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" Width="200" Height="200"/>
+            <TextBlock Text="RAPID" FontSize="80" FontWeight="Bold" Margin="0,10,0,20" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Text="Badminton Court System" FontSize="30" FontWeight="Bold" Margin="0,10,0,20" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+                <Button x:Name="adminButton" Content="Admin" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="30" Click="adminButton_Click" Width="300" Height="60" FontSize="30" CornerRadius="5" Background="DarkBlue" Foreground="WhiteSmoke"/>
+                <Button x:Name="customerButton" Content="Customer" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="30" Click="customerButton_Click" Width="300" Height="60" FontSize="30" CornerRadius="5" Background="DarkBlue" Foreground="WhiteSmoke"/>
+            </StackPanel>
+        </StackPanel>
+
+
+
+    </Grid>
+</Page>

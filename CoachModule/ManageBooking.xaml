@@ -1,0 +1,70 @@
+﻿<Page
+    x:Class="BadmintonCourtBookingSystem.ManageBooking"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdminManage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollMode="Enabled">
+            <StackPanel Margin="30" >
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Margin="7"  Click="HomePage_Click"  Content="HomePage" Background="#FF5779FF" Foreground="WhiteSmoke" HorizontalAlignment="Center"></Button>
+                    <Button Margin="7"  Click="History_Click"  Content="AllHistory" Background="#FF5779FF" Foreground="WhiteSmoke" HorizontalAlignment="Center"></Button>
+                    <Button Margin="7"  Click="Available_Click"  Content="AvailableSlot" Background="#FF5779FF" Foreground="WhiteSmoke" HorizontalAlignment="Center"></Button>
+                </StackPanel>
+
+                <GridView x:Name="futurebooking" ScrollViewer.HorizontalScrollMode="Enabled" 
+                          MaxHeight="276" Background="White" HorizontalAlignment="Stretch"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.IsHorizontalRailEnabled="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ScrollViewer.IsVerticalRailEnabled="True" Margin="40"
+                  ScrollViewer.VerticalScrollMode="Enabled"
+                  BorderBrush="Black" BorderThickness="1" >
+                    <GridView.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel  Orientation="Horizontal" BorderBrush="Black" BorderThickness="0,0,0,1" Height="25" HorizontalAlignment="Center">
+                                <TextBlock Text="Date" Width="150"  FontWeight="Bold" HorizontalTextAlignment="Center" LineHeight="1"/>
+                                <TextBlock Text="Time" Width="150"  FontWeight="Bold" HorizontalTextAlignment="Center"/>
+
+                                <TextBlock Text="Court" Width="150"  FontWeight="Bold" HorizontalTextAlignment="Center"/>
+                                <TextBlock Text="Email" Width="250"  FontWeight="Bold" HorizontalTextAlignment="Center"/>
+                                <TextBlock Text="Update Email" Width="250"  FontWeight="Bold" HorizontalTextAlignment="Center"/>
+                                <TextBlock Text="Cancel Booking" Width="250"  FontWeight="Bold" HorizontalTextAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.HeaderTemplate>
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                                <TextBlock Height="50" Width="150" Text="{Binding Dayy}" Margin="5"/>
+
+                                <TextBlock Height="50" Width="150" Text="{Binding Time}"  HorizontalTextAlignment="Center" />
+
+                                <TextBlock Height="50" Width="150" Text="{Binding Courtss}"  HorizontalTextAlignment="Center" />
+                                <TextBlock Height="50" Width="250" Text="{Binding Email}"  HorizontalTextAlignment="Center" />
+                                <Button Tag="{Binding Slot}" x:Name="update" Click="Update_Click"  Width="50" HorizontalAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="Red" FontFamily="Segoe MDL2 Assets" Content="&#xE70F;" Foreground="red" Background="White" Margin="70,0,100,0" />
+                                <Button Tag="{Binding Slot}" Click="CancelButton_ClickAsync"  Width="50"  HorizontalAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="Red" FontFamily="Segoe MDL2 Assets" Content="&#xF78A;" Foreground="red" Background="White" Margin="70,0,40,0"/>
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+                <StackPanel x:Name="afterclick" Visibility="Collapsed">
+                    <TextBlock Text="Time"/>
+                    <TextBox x:Name="updatetime" Margin="10" HorizontalAlignment="Stretch"/>
+                    <TextBlock Text="Email"/>
+                    <TextBox x:Name="updateemail" Margin="10" HorizontalAlignment="Stretch"/>
+                    <Button x:Name="submit" Click="submit_Click" Content="Submit"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</Page>

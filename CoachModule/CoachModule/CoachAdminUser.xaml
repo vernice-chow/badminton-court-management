@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="BadmintonCourtBookingSystem.CoachAdminUser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BadmintonCourtBookingSystem"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid Background="WhiteSmoke">
+
+            <ScrollViewer>
+                <StackPanel>
+                    <StackPanel>
+                        <Button x:Name="BackButton" Click="BackButton_Click"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        IsEnabled="{x:Bind Frame.CanGoBack, Mode=OneWay}" 
+                        ToolTipService.ToolTip="Back"/>
+                        <TextBlock x:Name="welcomeCustomer" Text="Customer List Hire Coach" Margin="5 5 5 0" FontSize="50" FontStyle="Normal" FontWeight="Bold" Foreground="Navy" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <GridView x:Name="myHire" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollMode="Enabled"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.IsHorizontalRailEnabled="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ScrollViewer.IsVerticalRailEnabled="True"
+                  ScrollViewer.VerticalScrollMode="Enabled">
+                        <GridView.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="10 10 10 10" >
+                                    <TextBlock Text="Customer Email" Width="180" Foreground="DarkBlue" FontSize="16" FontWeight="Bold" />
+                                    <TextBlock Text="Customer Contact Number" Width="220" Foreground="DarkBlue" FontSize="16" FontWeight="Bold"/>
+                                    <TextBlock Text="Customer Selected Coach" Width="220" Foreground="DarkBlue" FontSize="16" FontWeight="Bold" />
+                                    <TextBlock Text="Customer Preferred Time" Width="220" Foreground="DarkBlue" FontSize="16" FontWeight="Bold" />
+                                    <TextBlock Text="Customer Preferred Date" FontSize="16" FontWeight="Bold" Foreground="DarkBlue" />
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.HeaderTemplate>
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Height="50" Width="180" Text="{Binding userEmail}" Margin="5"/>
+                                    <TextBlock Height="50" Width="220" Text="{Binding userPhone}"/>
+                                    <TextBlock Height="50" Width="220" Text="{Binding userSelectedCoach}"/>
+                                    <TextBlock Height="50" Width="220" Text="{Binding preferDate}"/>
+                                    <TextBlock Height="50" Width="220" Text="{Binding preferTime}"/>
+
+                                    <Image x:Name="deleteButton" ToolTipService.ToolTip="Delete Coach" Source="Assets/dustbin.png" Height="25" Width="25" PointerPressed="deleteCButton_Click" Tag="{Binding FirebaseUserId}"/>
+
+                                    </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+
+                    <Button x:Name="refreshButton" Content="Refresh" Click="refreshButton_Click" Margin="10 10 10 10" CornerRadius="10" Background="Navy" Foreground="WhiteSmoke" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

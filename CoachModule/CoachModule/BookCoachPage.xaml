@@ -1,0 +1,102 @@
+﻿<Page
+    x:Class="BadmintonCourtBookingSystem.BookCoachPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BadmintonCourtBookingSystem"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="WhiteSmoke">
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel>
+                    <Button x:Name="BackButton" Click="BackButton_Click"
+                Style="{StaticResource NavigationBackButtonNormalStyle}"
+                IsEnabled="{x:Bind Frame.CanGoBack, Mode=OneWay}" 
+                ToolTipService.ToolTip="Back"/>
+                    <TextBlock x:Name="bookCoach" Text="Book Your Coach Now" Margin="10,10,10,10" FontSize="50" FontStyle="Normal" FontWeight="Bold" Foreground="Navy" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <GridView x:Name="CoachList2" HorizontalAlignment="Center" ScrollViewer.HorizontalScrollMode="Enabled"
+                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                  ScrollViewer.IsHorizontalRailEnabled="True" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  ScrollViewer.IsVerticalRailEnabled="True"
+                  ScrollViewer.VerticalScrollMode="Enabled">
+                        <GridView.HeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+                                    <TextBlock Text="Choose Coach* " Width="200" Foreground="Black" FontSize="15"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.HeaderTemplate>
+                        <GridView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="{Binding CoachName}" Click ="CoachButton_Click" Tag="{Binding CoachName}" Margin="5" CornerRadius="10" Background="MediumBlue" Foreground="WhiteSmoke"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridView.ItemTemplate>
+                    </GridView>
+
+                    <StackPanel>
+                        <TextBox x:Name="userEmailTextBox" TextWrapping="Wrap" Text="" PlaceholderText="Enter your email address (eg. rapidbadminton@gmail.com)" Margin="10 10 10 10" Width="400"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBox x:Name="userPhoneTextBox" TextWrapping="Wrap" Text="" PlaceholderText="Enter your contact number (eg. 0117273xxxx)" Margin="10 10 10 10" Width="400"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <CalendarDatePicker x:Name="preferDate" Header="Preferred Date" PlaceholderText="Choose your preferred date" Margin="10 10 10 10" Width="400" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TimePicker x:Name="preferTime" Header="Preferred Time" MinuteIncrement="30" ClockIdentifier="24HourClock" Margin="10 10 10 10" Width="400" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                <RelativePanel HorizontalAlignment="Center" >
+                        <Button x:Name="infoButton" Content="Store Information" Click="infoCButton_Click" Margin="10 10 10 10" CornerRadius="10" Background="Navy" Foreground="WhiteSmoke"/>
+                    <Button x:Name="returnViewButton" Content="Return to Coaches" Click="returnCButton_Click" Margin="10 10 10 10" CornerRadius="10" Background="Navy" Foreground="WhiteSmoke" RelativePanel.RightOf="infoButton"/>
+                </RelativePanel>
+
+                    <StackPanel>
+                        <TextBlock x:Name="titleInfo" Text="Customer Booking Information" FontSize="20" FontWeight="Bold" Margin="10 10 10 10" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <RelativePanel HorizontalAlignment="Center">
+                        <TextBlock x:Name="emailC" Text="Email Address: " Margin="10 10 10 10" />
+                        <TextBlock x:Name="emailchoose" RelativePanel.RightOf="emailC" Margin="10 10 10 10"/>
+                    </RelativePanel>
+
+                    <RelativePanel HorizontalAlignment="Center">
+                        <TextBlock x:Name="phoneC" Text="Contact Number: " Margin="10 10 10 10"/>
+                        <TextBlock x:Name="phonechoose" RelativePanel.RightOf="phoneC" Margin="10 10 10 10"/>
+                    </RelativePanel>
+
+                    <RelativePanel HorizontalAlignment="Center">
+                        <TextBlock x:Name="dateC" Text="Date Choosen: " Margin="10 10 10 10"/>
+                        <TextBlock x:Name="datechoose" RelativePanel.RightOf="dateC" Margin="10 10 10 10"/>
+                    </RelativePanel>
+
+                    <RelativePanel HorizontalAlignment="Center">
+                        <TextBlock x:Name="timeC" Text="Time Choosen: " Margin="10 10 10 10"/>
+                        <TextBlock x:Name="timechoose" RelativePanel.RightOf="timeC" Margin="10 10 10 10"/>
+                    </RelativePanel>
+
+                <RelativePanel HorizontalAlignment="Center">
+                    <TextBlock x:Name="coachC" Text="Coach Choosen: " Margin="10 10 10 10"/>
+                    <TextBlock x:Name="coachchoose" RelativePanel.RightOf="coachC" Margin="10 10 10 10"/>
+                </RelativePanel>
+
+                <RelativePanel HorizontalAlignment="Center">
+                    <Button x:Name="saveBookingCButton" Content="Save Booking Information as PDF" Click="saveBookingCButton_Click" Margin="10 10 10 10" CornerRadius="10" Background="Navy" Foreground="WhiteSmoke"/>
+                    <Button x:Name="exitCButton" Content="Exit" Click="exitCButton_Click" Margin="10 10 10 10" CornerRadius="10" Background="Navy" Foreground="WhiteSmoke" RelativePanel.RightOf="saveBookingCButton"/>
+                </RelativePanel>
+
+            </StackPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
