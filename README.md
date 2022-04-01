@@ -6,10 +6,12 @@
 <br/>
 
 - The user able to see the overall booking slot here. (Empty email = empty slot)
+
 ![image](https://user-images.githubusercontent.com/101675717/160218832-d7a08aeb-3794-4a13-ab06-01b25ad798ea.png)
 <br/>
  Manage Booking <br/>
 - The admin able to edit the customer email or cancel the booking at this page.
+
  ![image](https://user-images.githubusercontent.com/101675717/160218906-d11d6c04-cb7f-46c7-ab07-9f84ff6d5ede.png)
 <br/>
 
@@ -18,4 +20,5 @@
 <br/>
  Available Slot <br/>
 - The admin can view the available slot and add a new booking slot at this page. <br/>
+
 ![image](https://user-images.githubusercontent.com/101675717/160219322-fdd56907-33b5-43da-a5f3-c262a572ad5d.png)
